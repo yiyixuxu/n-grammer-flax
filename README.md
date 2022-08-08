@@ -43,8 +43,9 @@ output.shape:
  (1, 1024, 512)
 ```
 ## Reference
-* pytorch: https://github.com/lucidrains/n-grammer-pytorch
-* jax: https://github.com/tensorflow/lingvo/tree/master/lingvo/jax
+Thanks for [lucidrains](https://github.com/lucidrains)'s concise implementation of [N-Grammer in pytorch](https://github.com/lucidrains/n-grammer-pytorch). `n-grammer-flax` is inspired by and tested against (see `n_grammer_flax_test.py` for more details ) his project.
+
+also inspired by the official jax implementation: https://github.com/tensorflow/lingvo/tree/master/lingvo/jax
 
 ## Citations
 
