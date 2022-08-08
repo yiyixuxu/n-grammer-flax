@@ -75,6 +75,7 @@ class NgrammerTest(parameterized.TestCase):
         (25, 25, 4, 2, 8, True))
     def test_equivalence_with_n_grammer_pytorch(self, num_clusters, ngram_vocab_size, ngram_emb_dim,
                                                 num_heads, dim_per_head, concat_ngrams):
+        """test result against pytorch implementation https://github.com/lucidrains/n-grammer-pytorch."""
         x = torch.rand(2, 1024, dim_per_head * num_heads)
         init_rngs = {'params': jax.random.PRNGKey(1), 'batch_stats': jax.random.PRNGKey(2)}
         model_t = ngrammer_torch(
