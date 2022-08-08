@@ -20,8 +20,27 @@ pq_ngram = PQNgrammer(
     ngram_vocab_size = 768 * 256, #ngram vocab size 
     ngram_emb_dim= 16, # ngram embedding 
     decay = 0.99)
-pq_ngram(x) #(1,1024,32*16)
+init_variables  = pq_ngram.init(init_rngs, x)
+out,mutated_variables  =pq_ngram.apply(init_variables,x, mutable=['batch_stats'])
+print('mutated variables.shape:\n', jax.tree_map(lambda x: x.shape, mutated_variables))
+print('output.shape:\n', out.shape)
 ```
+
+```python
+mutated variables.shape:
+ FrozenDict({
+    batch_stats: {
+        ProductQuantization_0: {
+            means: (32, 1024, 16),
+        },
+    },
+})
+output.shape:
+ (1, 1024, 512)
+```
+## Reference
+* pytorch: https://github.com/lucidrains/n-grammer-pytorch
+* jax: https://github.com/tensorflow/lingvo/tree/master/lingvo/jax
 
 ## Citations
 
