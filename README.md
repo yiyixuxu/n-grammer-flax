@@ -12,7 +12,9 @@ key0, key1, key2 = jax.random.split(random.PRNGKey(0), 3)
 
 init_rngs = {'params': key1, 
              'batch_stats': key2}
-x = jax.random.normal(key0, shape=(1, 1024, 32 * 16))    
+
+x = jax.random.normal(key0, shape=(1, 1024, 32 * 16)) 
+
 pq_ngram = PQNgrammer(
     num_clusters = 1024, # number of clusters
     num_heads = 32, # number of attention heads
@@ -20,8 +22,10 @@ pq_ngram = PQNgrammer(
     ngram_vocab_size = 768 * 256, #ngram vocab size 
     ngram_emb_dim= 16, # ngram embedding 
     decay = 0.99)
+
 init_variables  = pq_ngram.init(init_rngs, x)
 out,mutated_variables  =pq_ngram.apply(init_variables,x, mutable=['batch_stats'])
+
 print('mutated variables.shape:\n', jax.tree_map(lambda x: x.shape, mutated_variables))
 print('output.shape:\n', out.shape)
 ```
