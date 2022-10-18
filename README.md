@@ -42,6 +42,9 @@ mutated variables.shape:
 output.shape:
  (1, 1024, 512)
 ```
+## Acknowledgement
+This Project is enabled by [TRC program](https://sites.research.google/trc/about/). Thank you google!
+
 ## Reference
 Thanks for [lucidrains](https://github.com/lucidrains)'s concise implementation of [N-Grammer in pytorch](https://github.com/lucidrains/n-grammer-pytorch). `n-grammer-flax` is inspired by and tested against (see `n_grammer_flax_test.py` for more details ) his project.
 
