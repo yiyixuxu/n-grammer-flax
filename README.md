@@ -17,8 +17,8 @@ x = jax.random.normal(key0, shape=(1, 1024, 32 * 16))
 
 pq_ngram = PQNgrammer(
     num_clusters = 1024, # number of clusters
-    num_heads = 32, # number of attention heads
-    dim_per_head = 16, # dimensions of each attention head
+    num_heads = 16, # number of attention heads
+    dim_per_head = 32, # dimensions of each attention head
     ngram_vocab_size = 768 * 256, #ngram vocab size 
     ngram_emb_dim= 16, # ngram embedding 
     decay = 0.99)
